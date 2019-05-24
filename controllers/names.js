@@ -7,13 +7,15 @@ module.exports = {
 function index(req, res, next) {
     console.log(req.query)
     
-    let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
+    let modelQuery = req.query.name;
     // Default to sorting by name
-    let sortKey = req.query.sort || 'name';
-    Name.find(modelQuery)
-    .sort(sortKey).exec(function(err, names) {
+   
+    Name.find(modelQuery).exec(function(err, names) {
       if (err) return next(err);
-      // Passing search values, name & sortKey, for use in the EJS
-      res.render('names/index', { names, name: req.query.name, sortKey });
+      res.render('posts/index', { names, 
+        name: req.query.name, 
+        user: req.user  
+       
+        });
     });
-  }
+}
