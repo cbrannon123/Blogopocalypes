@@ -2,7 +2,7 @@ var router = require('express').Router();
 var passport = require('passport');
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.redirect('/names');
+  res.redirect('/users');
 });
 
 router.get('/auth/google', passport.authenticate(
@@ -13,8 +13,8 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/names',
-    failureRedirect: '/names',
+    successRedirect: '/users',
+    failureRedirect: '/users',
   }
 ));
 

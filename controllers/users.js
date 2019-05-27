@@ -1,8 +1,13 @@
-const Name = require('../models/name');
+const User = require('../models/User');
 
 module.exports = {
-    index
+    index,
+    comments
 };
+
+function comments(req, res) {
+    res.render('blogs/comments')
+}
 
 function index(req, res, next) {
     console.log(req.query)
@@ -10,12 +15,13 @@ function index(req, res, next) {
     let modelQuery = req.query.name;
     // Default to sorting by name
    
-    Name.find(modelQuery).exec(function(err, names) {
+    User.find(modelQuery).exec(function(err, users) {
       if (err) return next(err);
-      res.render('posts/index', { names, 
+      res.render('blogs/index', { users, 
         name: req.query.name, 
         user: req.user  
        
         });
     });
 }
+
