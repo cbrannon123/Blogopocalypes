@@ -2,12 +2,10 @@ const User = require('../models/User');
 
 module.exports = {
     index,
-    comments
+    
 };
 
-function comments(req, res) {
-    res.render('blogs/comments')
-}
+
 
 function index(req, res, next) {
     console.log(req.query)

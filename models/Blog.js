@@ -13,8 +13,8 @@ var blogSchema = new Schema({
     author:{
         googleId: String
     }, 
-        timestamps: true 
+        //timestamps: true 
 }); 
 
 
-module.exports = mongoose('Blog', blogSchema);
+module.exports = mongoose.model('Blog', blogSchema);
