@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<% blog.forEach(function(b) { %>
+    <table>
+      <thead> <%= b.title %> </thead>
+      <tr>
+        <td> <%= b.text %> </td>
+        <td></td>
+        <%}) %>
+      </tr>
+    </table>
+
+<%- include('../partials/footer') %>

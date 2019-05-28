@@ -10,11 +10,11 @@ var blogSchema = new Schema({
         type: String,
         required: true
     },
-    author:{
+    author: {
         googleId: String
-    }, 
+    }
         //timestamps: true 
-}); 
+    }); 
 
 
 module.exports = mongoose.model('Blog', blogSchema);

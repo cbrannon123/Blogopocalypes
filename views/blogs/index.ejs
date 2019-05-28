@@ -1,37 +1,37 @@
-<%- include('../partials/header') %>
+<html>
 
-<% if (user) {%>
-<div class="navcontainer">
-<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+<head>
+  <title>Blogopocalypes</title>
+  <!-- Google Icon Fonts used by Materialize -->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Materialize CSS Framework -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="stylesheets/style.css" />
+  <!-- JavaScript for Materialize -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<nav class="navbar fixed-top navbar-dark bg-dark">
+    <a href="/users" class="navbar-brand">Blogopocalypes</a>
+    <% if (user) {%>
+    <a class="nav-link" href="/new">Post About It <span class="sr-only">(current)</span></a>
+    <form class="form-inline my-2 my-lg-0">
+      
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
         
-          <a class="nav-link" href="/users">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/comments">Comments</a>
-          <%} else {%>
-          </li>
-          <h1 >Login with Google to start!<h1>
-
-              <%}%>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-          
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><% if (user) { %>
-          <a href="/logout">Log Out</a>
-      <% } else { %>
+        <a href="/logout">Log Out</a>
+        <% } else { %> 
           <a href="/auth/google">Login with Google</a>
-      <% } %></button>
-      </form>
-    </div>
-  </nav>
-</div>
+         </button> 
+         <% } %>
+        </form>
+        
+      </nav><br>
+
+
+
+
+
 
 
 <%- include('../partials/footer') %>
