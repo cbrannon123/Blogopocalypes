@@ -1,6 +1,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var commentSchema = new Schema({
+    text: String,
+
+})
+
 var blogSchema = new Schema({
     title: {
         type: String,
@@ -10,10 +15,14 @@ var blogSchema = new Schema({
         type: String,
         required: true
     },
-    author: {
-        googleId: String
-    }
-        //timestamps: true 
+    userId: String,
+    addedBy: String,
+  
+    
+    },{
+
+    
+        timestamps: true 
     }); 
 
 
