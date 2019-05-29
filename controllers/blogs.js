@@ -8,8 +8,16 @@ module.exports = {
     create,
     index,
     deletePost,
-    updatePost
+    updatePost,
+    viewPost
 };
+
+function viewPost(req, res) {
+    Blog.findById(req.params.id, function(err, blog) {
+        res.render('blogs/view', {blog})
+        
+    });
+}
 
 function updatePost(req, res) {
     Blog.findByIdAndUpdate(req.params.id, function (err, blog) {

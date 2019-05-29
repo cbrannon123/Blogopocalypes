@@ -4,7 +4,7 @@ var blogsCtrl =  require('../controllers/blogs')
 
 router.get('/new', blogsCtrl.new);
 router.get('/show', blogsCtrl.index);
-// router.get('/blogs',  blogsCtrl.show);
+router.get('/blogs/:id',  blogsCtrl.viewPost);
 router.put('/blogs/:id', blogsCtrl.updatePost)
 router.post('/blogs/:id/delete', blogsCtrl.deletePost);
 router.post('/new', blogsCtrl.create);

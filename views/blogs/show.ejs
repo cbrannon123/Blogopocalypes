@@ -4,14 +4,16 @@
     <table><br><br>
       <thead > <h1><%= b.title %></h1> </thead>
       <tr>
-        <td class="author"> <%= b.addedBy %> </td>
-        <td ><form action="/blogs/<%= b._id %>/delete" method="POST">
-            <input class="author" type="submit" value="Delete">
-            </form></td>
-            <form action="/blogs/<%= b._id %>/update" method="PUT">
-            <input class="author" type="submit" value="Edit">
-            </form>
-    </tr>
+            <td class="author"> <%= b.addedBy %> </td>
+            <td ><form action="/blogs/<%= b._id %>/delete" method="POST">
+                <input class="author" type="submit" value="Delete"></form>
+             </td>
+                <form action="/blogs/<%= b._id %>/update" method="PUT">
+                    <input class="author" type="submit" value="Edit">
+                </form>
+            <tb><a href="/blogs/<%= b._id %>">View Post</a></tb>
+
+      </tr>
    </table>
 <%}) %>
 
