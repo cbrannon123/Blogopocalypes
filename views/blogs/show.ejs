@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 
-<% blogs.forEach(function(b) { %>
+
+<% blogs.reverse().forEach(function(b) { %>
     <table><br><br>
       <thead > <h1><%= b.title %></h1> </thead>
       <tr>
