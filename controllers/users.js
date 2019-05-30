@@ -7,9 +7,6 @@ module.exports = {
 };
 
 
-
-
-
 function index(req, res, next) {
     console.log(req.query)
     

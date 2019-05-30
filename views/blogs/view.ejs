@@ -1,29 +1,38 @@
 <%- include('../partials/header') %>
 
 
-<div class="container" >
+<div class="viewHead" >
     <h1><%= blog.title %></h1>
 </div>
-<div class="commetns" >
+<div class="viewText" >
     <p><%= blog.text %></p><br><br>
-    </div>
+</div>
 
-<% blog.comments.forEach(function(c) { %>
+<div class="commentWrapper">
+        <form action="/blogs/<%= blog._id%>/content" method="POST">
+            <div class="form-group">
+                <textarea class="form-control" name="content" id="exampleFormControlTextarea1"  rows="2" placeholder="Comment about it"></textarea>
+            </div>
+            <input type="hidden" name="user" value="<%= user.id %>"/>
+            <button type="submit" class="btn btn-secondary btn-lg bg-dark ">Submit</button>
+        </form>
+</div>
+
+<div class="commentWrapper">
+<% blog.comments.reverse().forEach(function(c) { %>
     <div class="comments" >
-        <p><%= c.content %></p>
-        <p><%= blog.userId %></p>
+        <p class="contentWrapper"><%= c.content %></p>
+        <p class='timestamps'>Posted on <%= blog.createdAt %></p>
+        <% allUsers.forEach(u => { %>
+            <% if(u._id.toString() == c.user._id.toString()){ %>
+                <p class='timestamps'>Posted by <%= u.name%></p>
+            <% } %>
+        <% }) %>
     </div>
-    <%});%>
+<%});%>   
+</div>   
     
-    
-    
-    
-    <form action="/blogs/<%= blog._id%>/content" method="POST">
-        <div class="form-group">
-            <textarea class="form-control" name="content" id="exampleFormControlTextarea1"  rows="2" placeholder="Comment about it"></textarea>
-        </div>
-        <button type="submit" class="btn btn-secondary btn-lg bg-dark ">Submit</button>
-    </form>
+
     
     
 <%- include('../partials/footer') %>

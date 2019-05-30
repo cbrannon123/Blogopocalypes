@@ -9,18 +9,49 @@ module.exports = {
     index,
     deletePost,
     updatePost,
-    updatePostT,
+    updatePostTitle,
     viewPost
 };
 
 function viewPost(req, res) {
-    Blog.findById(req.params.id, function(err, blog) {
-        res.render('blogs/view', {blog})
+    // Blog.findById(req.params.id, function(err, blog) {
+    //     blog.comments.forEach(element => {
+            
+    //         console.log(element)
+    //     });
+    //     res.render('blogs/view', {blog})
         
-    });
+    // });
+    var user = req.user;
+    Blog.findById(req.params.id)
+    .exec(function(err, blog){
+        var ids = blog.comments.map(function(comment) {
+            return comment.user;
+        })
+        console.log(ids);
+        // console.log(blog.comments)
+        // User.find({}, function(err, allUsers){
+        //     // console.log(allUsers)
+        // })
+        User.find({
+            "_id": {
+                $in: ids
+            }
+        })
+        .exec(function(err, allUsers){
+            // allUsers.forEach(u => {
+            //     if(blog.comments.includes(u._id)){
+            //         console.log("hi")
+            //     }
+            // })
+            // console.log("HITTING")
+            console.log(allUsers)
+            res.render('blogs/view', {blog, allUsers, user})
+        })
+    })
 }
 
-function updatePostT(req, res) {
+function updatePostTitle(req, res) {
     Blog.findById(req.params.id, function (err, blog) {
         blog.title = req.body.editTitle;
         blog.save();

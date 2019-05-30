@@ -13,7 +13,7 @@ module.exports = {
 function create(req, res) {
     Blog.findById(req.params.id, function(err, blog) {
         console.log(blog)
-        blog.comments.push({content: req.body.content});
+        blog.comments.push(req.body)
        blog.save(function(err) {
          res.redirect('back');
        });
