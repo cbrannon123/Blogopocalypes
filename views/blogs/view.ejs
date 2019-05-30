@@ -1,24 +1,29 @@
 <%- include('../partials/header') %>
 
-<h1><%= blog.title %></h1>
-<p><%= blog.text %></p><br><br>
 
+<div class="container" >
+    <h1><%= blog.title %></h1>
+</div>
+<div class="commetns" >
+    <p><%= blog.text %></p><br><br>
+    </div>
 
 <% blog.comments.forEach(function(c) { %>
-
-    <p><%= c.content %></p>
-    <p><%= c.userId %></p>
-    
-    
-    
-    
+    <div class="comments" >
+        <p><%= c.content %></p>
+        <p><%= blog.userId %></p>
+    </div>
     <%});%>
+    
+    
+    
+    
     <form action="/blogs/<%= blog._id%>/content" method="POST">
         <div class="form-group">
-            <textarea class="form-control" name="content" id="exampleFormControlTextarea1"  rows="10" placeholder="Comment about it"></textarea>
+            <textarea class="form-control" name="content" id="exampleFormControlTextarea1"  rows="2" placeholder="Comment about it"></textarea>
         </div>
         <button type="submit" class="btn btn-secondary btn-lg bg-dark ">Submit</button>
     </form>
     
-
+    
 <%- include('../partials/footer') %>

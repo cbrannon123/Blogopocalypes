@@ -9,6 +9,7 @@ module.exports = {
     index,
     deletePost,
     updatePost,
+    updatePostT,
     viewPost
 };
 
@@ -19,10 +20,20 @@ function viewPost(req, res) {
     });
 }
 
+function updatePostT(req, res) {
+    Blog.findById(req.params.id, function (err, blog) {
+        blog.title = req.body.editTitle;
+        blog.save();
+        res.redirect('back');
+        
+    });
+    }
+
+
+
 function updatePost(req, res) {
     Blog.findById(req.params.id, function (err, blog) {
         blog.text = req.body.edit;
-        blog.title = req.body.editTitle
         blog.save();
         res.redirect('back');
         

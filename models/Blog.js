@@ -5,7 +5,7 @@ var commentSchema = new Schema({
     content: {
         type: String,
         required: true
-    }
+    },
     
 
 });
@@ -25,7 +25,7 @@ var blogSchema = new Schema({
     comments: [commentSchema],
     user: {
         type: Schema.Types.ObjectId,
-        ref: 'Blog'
+        ref: 'User'
     }
      
     

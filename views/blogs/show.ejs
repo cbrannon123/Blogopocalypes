@@ -10,13 +10,17 @@
             <td >
                     <form action="/blogs/<%= b._id %>/delete" method="POST">
                         <input class="author" type="submit" value="Delete"></form>
-                    </td>
-                    <% } %>
-                <form action="/blogs/<%= b._id %>/update" method="POST">
-                    <input class="author" type="text" name='edit' placeholder="Edit Post">
-                    <input type="text" name="editTitle" placeholder="Edit title">
-                    <button>Edit</button>
-            </form>
+                        <% } %>
+
+                            <form action="/blogs/<%= b._id %>/updateT" method="POST">        
+                                <input type="text" name="editTitle" placeholder="<%= b.title %>">
+                                <button>edit Title</button></form>
+                                <form action="/blogs/<%= b._id %>/update" method="POST">
+                                    <input type="text" name='edit' placeholder="<%= b.text %>">
+                                    <button>Edit</button>
+                                </form>
+                            
+            </td>
             <tb><a href="/blogs/<%= b._id %>">View Post</a></tb>
         </tr>
         
