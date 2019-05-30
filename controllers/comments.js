@@ -11,14 +11,14 @@ module.exports = {
 
 
 function create(req, res) {
-   Blog.findById(req.params.id, function(err, blog) {
+    Blog.findById(req.params.id, function(err, blog) {
+        console.log(blog)
         blog.comments.push({content: req.body.content});
-        blog.save();
-            res.redirect('back')
-        
-   });
-
+       blog.save(function(err) {
+         res.redirect('back');
+       });
+    });
+  }
 
     
 
-}

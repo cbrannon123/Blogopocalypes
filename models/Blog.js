@@ -5,9 +5,8 @@ var commentSchema = new Schema({
     content: {
         type: String,
         required: true
-    },
-    userId: String,
-    addedBy: String
+    }
+    
 
 });
 
@@ -22,13 +21,11 @@ var blogSchema = new Schema({
     },
     
     userId: String,
-    addedBy: String
-  
-    
-    },{ 
+    addedBy: String,
 
     comments: [commentSchema] 
-, 
+    
+    
 
     },
     {
