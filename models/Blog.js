@@ -22,11 +22,14 @@ var blogSchema = new Schema({
     
     userId: String,
     addedBy: String,
-
-    comments: [commentSchema] 
+    comments: [commentSchema],
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'Blog'
+    }
+     
     
     
-
     },
     {
 

@@ -6,6 +6,4 @@ router.post('/blogs/:id/content', commentsCtrl.create);
 
 
 
-
-
 module.exports = router;

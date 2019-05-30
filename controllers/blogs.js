@@ -20,8 +20,12 @@ function viewPost(req, res) {
 }
 
 function updatePost(req, res) {
-    Blog.findByIdAndUpdate(req.params.id, function (err, blog) {
-        res.send('blog')
+    Blog.findById(req.params.id, function (err, blog) {
+        blog.text = req.body.edit;
+        blog.title = req.body.editTitle
+        blog.save();
+        res.redirect('back');
+        
     });
     }
         
