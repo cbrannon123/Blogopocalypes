@@ -117,6 +117,9 @@ function newPost(req, res) {
 
 function index(req, res) {
     Blog.find({}).populate('user').exec(function(err, blogs) {
+        if (blogs.length < 1) {
+        res.redirect("/new")
+         }
         res.render('blogs/show', {
             blogs, user: req.user
         })
