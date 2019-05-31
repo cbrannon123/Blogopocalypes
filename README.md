@@ -21,7 +21,7 @@ Blogopocalypes...keeping the dreamers grounded and supporting cynics everywhere.
 ---
 
 ## Technologies Used
-HTML5 | CSS3 | Javascript | Node.js | Express | Mongoose | MongoDB |
+HTML5 | CSS3 | Javascript | Node.js | Express | Mongoose | MongoDB | Bootstrap |
 ---
 
 ## Next Steps

@@ -1,7 +1,11 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px , Helvetica, Arial, sans-serif;
   background-color: whitesmoke;
+}
+
+#logo {
+  font-family: 'Black Ops One', cursive;
 }
 
 a {
@@ -10,13 +14,35 @@ a {
 
 .author { 
   font-size: 10px;
+  text-align: right;
 
+}
+
+.imgBack {
+  background-image: url('../images/white-textured-paper_53876-86282.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.imgButton {
+  background-image: url(../images/blank-warning-sign-isolated-on-white-background-EN4KR2.jpg);
+  background-repeat: none;
+  background-size: cover;
+  padding: 30px;
+}
+
+.imgView {
+  background-image: url(../images/guide-to-apocalypse-gear-patrol-lead-full.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  
 }
 
 .viewLink {
   padding: 10px;
-  color: red;
-  border: 2px solid red;
+  color: white;
+  background: rgba(0, 0, 0, 0.651);
+  border: 2px solid;
   border-radius: 100px;
 }
 
@@ -50,7 +76,7 @@ a {
 }
 
 .comments  {
-border-bottom: 0.5px dotted lightgray;
+border-bottom: 0.5px dotted rgb(87, 74, 74);
 text-align: left;
 }
 

@@ -1,55 +1,60 @@
 <html>
+
 <head>
-  <title>Blogopocalypes</title>
-  <!-- Google Icon Fonts used by Materialize -->
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Materialize CSS Framework -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <!-- JavaScript for Materialize -->
-  <link rel="stylesheet" href="/stylesheets/style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Blogopocalypes</title>
+    <!-- Google Icon Fonts used by Materialize -->
+    
+    <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Creepster&display=swap" rel="stylesheet">
+
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS Framework -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- JavaScript for Materialize -->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <nav class="navbar fixed-top navbar-dark bg-dark">
-    <a  href="/users"  class="navbar-brand">Blogopocalypes</a>
+    <a href="/users" class="navbar-brand" id='logo'>Blogopocalypes</a>
     <a class="nav-link" href="/new">Post About It <span class="sr-only">(current)</span></a>
 </nav><br>
 
-
+<body class='imgBack'> 
 <% blogs.reverse().forEach(function(b) { %>
-<table><br><br>
-    <thead><h1 class="head"><%= b.title %></h1></thead>
-        <tr>
-            <td class="author"><%= b.addedBy %></td>
-            
-                <td >
+    <table ><br><br>
+        <thead>
+            <h1 class="head"><%= b.title %></h1>
+        </thead>
+    <tr>
+        <td class="author">Posted By <%= b.addedBy %>  <span class="timeStamps"><%= b.createdAt %></span></td>
+        
 
-                        <% if (user.id === b.userId) {%>
+        <td>
 
-                    <form action="/blogs/<%= b._id %>/delete" method="POST">
-                        <input class="author" type="submit" value="Delete">
-                    </form>
-                    <form action="/blogs/<%= b._id %>/updateTitle" method="POST">        
-                        <input type="text" name="editTitle" value="<%= b.title %>">
-                        <button>Edit Title</button>
-                    </form>
-                    
-                    
-                    <form action="/blogs/<%= b._id %>/update" method="POST">
-                        <input type="text" name='edit' value="<%= b.text %>">
-                        <button>Edit</button>
-                    </form>          
-                    <%}%>
-               
+            <% if (user.id === b.userId) {%>
 
-              
+            <form action="/blogs/<%= b._id %>/delete" method="POST">
+                <input class="author" type="submit" value="Delete">
+            </form>
+            <form action="/blogs/<%= b._id %>/updateTitle" method="POST">
+                <input type="text" name="editTitle" value="<%= b.title %>">
+                <button>Edit Title</button>
+            </form>
+
+            <form action="/blogs/<%= b._id %>/update" method="POST">
+                <input type="text" name='edit' value="<%= b.text %>">
+                <button>Edit</button>
+            </form>
+            <%}%>
 
             </td>
             
             <a class="viewLink" href="/blogs/<%= b._id %>">View Post</a>
-        </tr>
-        
-<%}) %>
+    </tr>
+
+    <%}) %>
 </table>
+</body>
 
 <%- include('../partials/footer') %>

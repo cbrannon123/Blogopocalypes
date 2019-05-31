@@ -22,7 +22,7 @@ var blogSchema = new Schema({
         type: String,
         required: true
     },
-    
+
     userId: String,
     addedBy: String,
     comments: [commentSchema],
@@ -30,15 +30,15 @@ var blogSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     }
-     
-    
-    
-    },
+
+
+
+},
     {
 
-        timestamps: true 
+        timestamps: true
 
-    }); 
+    });
 
 
 module.exports = mongoose.model('Blog', blogSchema);
