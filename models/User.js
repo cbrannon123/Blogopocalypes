@@ -5,10 +5,10 @@ const userSchema = new Schema({
     name: String,
     email: String,
     googleId: String,
-    user: {
+    posts: [{
         type: Schema.Types.ObjectId,
         ref: 'Blog'
-    }
+    }]
 
 }, {
     timestamps: true

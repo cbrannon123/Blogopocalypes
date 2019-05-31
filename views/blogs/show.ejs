@@ -22,20 +22,30 @@
         <tr>
             <td class="author"><%= b.addedBy %></td>
             
-            <td >
-                <form action="/blogs/<%= b._id %>/delete" method="POST">
-                    <input class="author" type="submit" value="Delete">
-                </form>
-                <form action="/blogs/<%= b._id %>/updateTitle" method="POST">        
-                    <input type="text" name="editTitle" value="<%= b.title %>">
-                    <button>Edit Title</button>
-                </form>
-                <form action="/blogs/<%= b._id %>/update" method="POST">
-                    <input type="text" name='edit' value="<%= b.text %>">
-                    <button>Edit</button>
-                </form>          
-                
+                <td >
+
+                        <% if (user.id === b.userId) {%>
+
+                    <form action="/blogs/<%= b._id %>/delete" method="POST">
+                        <input class="author" type="submit" value="Delete">
+                    </form>
+                    <form action="/blogs/<%= b._id %>/updateTitle" method="POST">        
+                        <input type="text" name="editTitle" value="<%= b.title %>">
+                        <button>Edit Title</button>
+                    </form>
+                    
+                    
+                    <form action="/blogs/<%= b._id %>/update" method="POST">
+                        <input type="text" name='edit' value="<%= b.text %>">
+                        <button>Edit</button>
+                    </form>          
+                    <%}%>
+               
+
+              
+
             </td>
+            
             <a class="viewLink" href="/blogs/<%= b._id %>">View Post</a>
         </tr>
         

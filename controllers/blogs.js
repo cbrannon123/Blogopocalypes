@@ -84,26 +84,43 @@ function deletePost(req, res) {
 
 function create(req, res) {
     var blog = new Blog(req.body);
-    blog.userId = req.user._id;
+    blog.userId = req.user.id;
     blog.addedBy = req.user.name;
-    blog.save(function(err) {
-        if (err) res.render("blogs/new");
-        console.log(blog);
-        res.redirect('/show')
-    });
+ User.findById(req.user.id, function(err, user) {
+console.log('=>>>>>>>>>>>>>>>', user.id);
+user.posts.push(blog.id);
+user.save();
+ });
+ blog.save(function(err) {
+    res.render('blogs/new')
+
+});
+//onsole.log('hi>>>>>>>>>>>>>>', user.id)
+
+res.redirect('/show')
 }
 
 function newPost(req, res) {
     res.render('blogs/new')
 }
 
-function index(req, res){
-    Blog.find({}, function(err, blogs){
-        if (blogs.length < 1) {
-            res.redirect("/new")
-        }
+// function index(req, res){
+//     Blog.find({}, function(err, blogs){
+//         if (blogs.length < 1) {
+//             res.redirect("/new")
+//         }
+//         res.render('blogs/show', {
+//             blogs
+//         });
+//     });
+// }
+
+function index(req, res) {
+    Blog.find({}).populate('user').exec(function(err, blogs) {
         res.render('blogs/show', {
-            blogs
-        });
+            blogs, user: req.user
+        })
     });
 }
+
+
