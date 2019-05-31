@@ -9,9 +9,9 @@ Blogopocalypes...keeping the dreamers grounded and supporting cynics everywhere.
 - Read and comment on other users' posts
 <p align="center">
 <img src=https://i.imgur.com/sHDsWAn.png width='500'>
-<img src=https://i.imgur.com/CSVDsyT.png width="500">
-<img src=https://i.imgur.com/LFtfRdy.png width="500">
-<img src=https://i.imgur.com/eZnw4Bn.png width="500">
+<img src=https://i.imgur.com/UHdPsuo.png width="500">
+<img src=https://i.imgur.com/txJ4K63.png width="500">
+<img src=https://i.imgur.com/eZRbBfu.png width="500">
 </p>
 ---
 
