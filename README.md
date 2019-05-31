@@ -8,6 +8,7 @@ Blogopocalypes...keeping the dreamers grounded and supporting cynics everywhere.
 - Create, edit and delete blog posts
 - Read and comment on other users' posts
 <p align="center">
+<img src=https://i.imgur.com/sHDsWAn.png width='500'>
 <img src=https://i.imgur.com/CSVDsyT.png width="500">
 <img src=https://i.imgur.com/LFtfRdy.png width="500">
 <img src=https://i.imgur.com/eZnw4Bn.png width="500">
